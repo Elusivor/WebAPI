@@ -17,13 +17,13 @@ namespace WeebAPI.Filters
     };
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false)]
 
-    public class ClientCacheControlFilterAttribute : ActionFilterAttribute
+    public class ClientCacheControlFilter : ActionFilterAttribute
     {
         private ClientCacheOption _option;
         private int _cacheForSeconds;
-        public ClientCacheControlFilterAttribute() : this(10, ClientCacheOption.Private) { }
-        public ClientCacheControlFilterAttribute(int CacheForSeconds) : this(CacheForSeconds, ClientCacheOption.Private) { }
-        public ClientCacheControlFilterAttribute(int CacheForSeconds, ClientCacheOption Option)
+        public ClientCacheControlFilter() : this(10, ClientCacheOption.Private) { }
+        public ClientCacheControlFilter(int CacheForSeconds) : this(CacheForSeconds, ClientCacheOption.Private) { }
+        public ClientCacheControlFilter(int CacheForSeconds, ClientCacheOption Option)
         {
             _option = Option;
             _cacheForSeconds = CacheForSeconds;
