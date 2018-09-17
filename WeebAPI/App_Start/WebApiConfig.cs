@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using WeebAPI.Filters;
 
 namespace WeebAPI
 {
@@ -13,12 +14,7 @@ namespace WeebAPI
 
             // Web API routes
             config.MapHttpAttributeRoutes();
-
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            config.Filters.Add(new RouteTimeFilterAttribute("Global_Timer"));
         }
     }
 }
