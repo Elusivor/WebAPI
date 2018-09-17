@@ -114,5 +114,21 @@ namespace WeebAPI.Controllers
             response.Headers.Add("Some Header", "Has Some Value");
             return response;
         }
+
+        [HttpGet]
+        [Route("getDTOErrorNegotiated")]
+        public HttpResponseMessage GetDTOErrorAsRequested()
+        {
+            var dto = new ComplexData()
+            {
+                String1 = "First",
+                String2 = "Second",
+                Int1 = 1111,
+                Int2 = 2222,
+                Date1 = DateTime.Now
+            };
+            var response = Request.CreateErrorResponse(HttpStatusCode.BadRequest,"Something else did not work");
+            return response;
+        }
     }
 }
